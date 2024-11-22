@@ -8,3 +8,10 @@ export const getAllPosts = async () => {
 
   return collection.find().toArray();
 }
+
+export const createPost = async (newPost: any) => {
+  const db = connection.db("instabytes");
+  const collection = db.collection("posts");
+
+  return collection.insertOne(newPost);
+}
